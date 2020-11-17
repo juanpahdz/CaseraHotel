@@ -33,6 +33,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'RegistroController::index');
 $routes->post('/registro', 'RegistroController::registrar');
 $routes->get('/listar', 'RegistroController::listar');
+$routes->get('/animales/eliminar/(:any)', 'RegistroController::eliminar/$1');
+$routes->post('/animales/editar/(:any)', 'RegistroController::editar/$1');
 
 
 /**

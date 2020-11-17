@@ -55,8 +55,8 @@
                             <div class="card-image">
                                 <img src="'.base_url("/public/img/baner1.jpg").'">
                                 <span class="card-title">'.$animal["nombre"].'</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light blue darken-1"><i class="material-icons">create</i></a>
-                                <a style="right: 75px;" class="btn-floating halfway-fab waves-effect waves-light red darken-4"><i class="material-icons">delete</i></a>
+                                <button data-target="modal'.$animal["id"].'" class="btn-floating modal-trigger halfway-fab waves-effect waves-light blue darken-1"><i class="material-icons">create</i></button>
+                                <a href="'.base_url("/public/animales/eliminar/".$animal["id"]).'" style="right: 75px;" class="btn-floating halfway-fab waves-effect waves-light red darken-4"><i class="material-icons">delete</i></a>
                             </div>
                             <div class="card-content">
                                 <p>'.$animal["descripcion"].'</p>
@@ -68,6 +68,53 @@
                             </div>
                         </div>
                     </div>
+
+                    <div style="padding: 50px; max-width:600px" id="modal'.$animal["id"].'" class="modal">
+                        <div class="row">
+                            <form class="col s12" action="/hogarPaso/public/usuarios/editar/'.$animal["id"].'" method="POST">
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                    <input value="'.$animal["nombre"].'" name="nombre" id="nombre" type="text" class="validate">
+                                    <label for="nombre">Animal</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                    <input value="'.$animal["edad"].'" name="edad" id="edad" type="number" class="validate">
+                                    <label for="edad">edad</label>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select name="tipo" class="icons">
+                                        <option value="" disabled selected>Elije una opcion</option>
+                                        <option value="0" data-icon="" class="left">Domestico</option>
+                                        <option value="1" data-icon="" class="left">fauna silvestre</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input  value="'.$animal["comida"].'" name="comida" id="comida" type="text" class="validate">
+                                        <label for="comida">comida</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                    <textarea name="descripcion" id="descripcion" class="materialize-textarea">'.$animal["descripcion"].'</textarea>
+                                    <label for="descripcion">Descripcion</label>
+                                    </div>
+                                </div>
+
+                                <div class="card-action">
+                                    <button type="submit" style="width:100%" class="waves-effect waves-light btn-large teal lighten-2">Editar</a>
+                                </div>
+                            </form>
+                            </div>
+                                <a href="#!" class="modal-close waves-effect red darken-2 btn-large">Close Form</a>
+                        </div>
                     ';
                 }
                     
@@ -81,6 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {});
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, {});
+  });
+
 </script>
 
 </body>

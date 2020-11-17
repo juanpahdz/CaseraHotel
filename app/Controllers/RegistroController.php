@@ -60,10 +60,39 @@ class RegistroController extends BaseController
 
         try{
             $animalModel->where('id',$idEliminar)->delete();
+            
         }
         catch(\Exception $e){
             die($e_>getMessage());
         }
+    }
+
+    public function editar($id){
+
+        $nombre = $this->request->getPost("nombre");
+        $tipo = $this->request->getPost("tipo");
+        $edad = $this->request->getPost("edad");
+        $descripcion = $this->request->getPost("descripcion");
+        $comida = $this->request->getPost("comida");
+
+        $send = array(
+            "nombre" => $nombre,
+            "tipo" => $tipo,
+            "edad" => $edad,
+            "descripcion" => $descripcion,
+            "comida" => $comida,
+        );
+
+        $animalModel = new ModelAnimal();   
+        
+        try{
+            $animalModel -> update($id,$send);
+            echo("Usuario Editado con exito");
+        }
+        catch(\Exception $e){
+            die($e_>getMessage());
+        }
+
     }
 
 
