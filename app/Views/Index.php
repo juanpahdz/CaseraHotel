@@ -45,9 +45,9 @@
         <nav class="teal lighten-2">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="/" style="font-weight:800" class="brand-logo">Casera Hotel</a>
+            <a href="<?php echo(base_url("/public"))?>" style="font-weight:800" class="brand-logo">Casera Hotel</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Registrar</a></li>
+                <li><a href="<?php echo(base_url("/public"))?>">Registrar</a></li>
                 <li><a href="<?php echo(base_url("/public/listar"))?>">Listar</a></li>
                 <li><a href="">Contactarnos</a></li>
             </ul>

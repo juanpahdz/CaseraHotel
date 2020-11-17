@@ -20,10 +20,10 @@
         <nav class="teal lighten-2">
         <div class="container">
             <div class="nav-wrapper">
-            <a href="/" style="font-weight:800" class="brand-logo">Casera Hotel</a>
+            <a href="<?php echo(base_url("/public"))?>" style="font-weight:800" class="brand-logo">Casera Hotel</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Registrar</a></li>
-                <li><a href="">Listar</a></li>
+                <li><a href="<?php echo(base_url("/public"))?>">Registrar</a></li>
+                <li><a href="<?php echo(base_url("/public/listar"))?>">Listar</a></li>
                 <li><a href="">Contactarnos</a></li>
             </ul>
             </div>
@@ -71,7 +71,7 @@
 
                     <div style="padding: 50px; max-width:600px" id="modal'.$animal["id"].'" class="modal">
                         <div class="row">
-                            <form class="col s12" action="/hogarPaso/public/usuarios/editar/'.$animal["id"].'" method="POST">
+                            <form class="col s12" action="'.base_url("/public/animales/editar/".$animal["id"]).'" method="POST">
                                 <div class="row">
                                     <div class="input-field col s6">
                                     <input value="'.$animal["nombre"].'" name="nombre" id="nombre" type="text" class="validate">

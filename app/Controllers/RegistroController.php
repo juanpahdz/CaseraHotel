@@ -60,7 +60,7 @@ class RegistroController extends BaseController
 
         try{
             $animalModel->where('id',$idEliminar)->delete();
-            
+            return redirect()->to(base_url('public/listar'));
         }
         catch(\Exception $e){
             die($e_>getMessage());
@@ -83,14 +83,14 @@ class RegistroController extends BaseController
             "comida" => $comida,
         );
 
+        print_r($send);
         $animalModel = new ModelAnimal();   
-        
         try{
-            $animalModel -> update($id,$send);
-            echo("Usuario Editado con exito");
+            $animalModel->update($id,$send);
+            return redirect()->to(base_url('public/listar'));
         }
         catch(\Exception $e){
-            die($e_>getMessage());
+            die($e->getMessage());
         }
 
     }
