@@ -38,7 +38,7 @@ class RegistroController extends BaseController
 
     }
 
-    public function consultar(){
+    public function listar(){
         $animalModel = new ModelAnimal();   
 
 
@@ -46,7 +46,7 @@ class RegistroController extends BaseController
             $getAnimal=$animalModel->findAll();
             $data=array("animales"=>$getAnimal);
 
-            return view('vistaListado',$data);
+            return view('listar',$data);
         }
         catch(\Exception $e){
             die($e_>getMessage());
@@ -55,10 +55,11 @@ class RegistroController extends BaseController
 
     public function eliminar($idEliminar){
 
-        $modeloPersona = new ModelPersona();  
+
+        $animalModel = new ModelAnimal();  
 
         try{
-            $modeloPersona->where('id',$idEliminar)->delete();
+            $animalModel->where('id',$idEliminar)->delete();
         }
         catch(\Exception $e){
             die($e_>getMessage());
