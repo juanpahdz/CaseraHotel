@@ -16,6 +16,7 @@ class RegistroController extends BaseController
         $edad = $this->request->getPost("edad");
         $descripcion = $this->request->getPost("descripcion");
         $comida = $this->request->getPost("comida");
+        $imagen = $this->request->getPost("imagen");
         
         $send = array(
             "nombre" => $nombre,
@@ -23,14 +24,14 @@ class RegistroController extends BaseController
             "edad" => $edad,
             "descripcion" => $descripcion,
             "comida" => $comida,
+            "imagen" => $imagen,
         );
-
         $AnimalModel = new ModelAnimal();   
+        $data=array("animal"=>$send);
         
         try{
             $AnimalModel -> insert($send);
-            echo("<script>M.toast({html: 'Registrado con Exito'})</script>");
-            return view('index', $send);
+            return redirect()->to(base_url('public/'));
         }
         catch(\Exception $e){
             die($e_>getMessage());

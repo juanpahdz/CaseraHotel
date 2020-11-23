@@ -6,6 +6,6 @@ class ModelAnimal extends Model
 {
     protected $table = 'animales';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'edad','tipo','descripcion','comida'];
+    protected $allowedFields = ['nombre', 'edad','tipo','descripcion','comida', 'imagen'];
 
 }

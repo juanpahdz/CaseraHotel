@@ -53,7 +53,7 @@
                     <div class="col s4">
                         <div class="card">
                             <div class="card-image">
-                                <img src="'.base_url("/public/img/baner1.jpg").'">
+                                <img src="'.$animal["imagen"].'">
                                 <span class="card-title">'.$animal["nombre"].'</span>
                                 <button data-target="modal'.$animal["id"].'" class="btn-floating modal-trigger halfway-fab waves-effect waves-light blue darken-1"><i class="material-icons">create</i></button>
                                 <a href="'.base_url("/public/animales/eliminar/".$animal["id"]).'" style="right: 75px;" class="btn-floating halfway-fab waves-effect waves-light red darken-4"><i class="material-icons">delete</i></a>

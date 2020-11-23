@@ -41,6 +41,7 @@
 </style>
 
 <body>
+<?php echo(isset($animal["id"]) ? "<script>M.toast({html: '".$animal["id"]." Registrado con Exito'})</script>": "");?>
     <header>
         <nav class="teal lighten-2">
         <div class="container">
@@ -68,19 +69,19 @@
                             <form action="<?php echo(base_url("/public/registro"))?>" method="POST">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                    <input name="nombre" id="nombre" type="text" class="validate">
+                                    <input name="nombre" id="nombre" type="text" class="validate" required>
                                     <label for="nombre">Animal</label>
                                     </div>
 
                                     <div class="input-field col s6">
-                                    <input name="edad" id="edad" type="number" class="validate">
+                                    <input name="edad" id="edad" type="number" class="validate" required>
                                     <label for="edad">edad</label>
                                     </div>
                                     
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <select name="tipo" class="icons">
+                                        <select name="tipo" class="icons" require>
                                         <option value="" disabled selected>Elije una opcion</option>
                                         <option value="0" data-icon="" class="left">Domestico</option>
                                         <option value="1" data-icon="" class="left">fauna silvestre</option>
@@ -90,14 +91,22 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input name="comida" id="comida" type="text" class="validate">
+                                        <input name="comida" id="comida" type="text" class="validate" required>
                                         <label for="comida">comida</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                    <textarea name="descripcion" id="descripcion" class="materialize-textarea"></textarea>
+                                        <input name="imagen" id="imagen" type="text" class="validate" required>
+                                        <label for="imagen">Image URL</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                    <textarea name="descripcion" id="descripcion" class="materialize-textarea" required></textarea>
                                     <label for="descripcion">Descripcion</label>
                                     </div>
                                 </div>
