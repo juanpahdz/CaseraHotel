@@ -45,8 +45,10 @@
 }
 </style>
 <main>
+<script><?php echo(session('res'))?></script>
     <div class="container">
         <div class="row">
+        
             <?php
                 foreach($animales as $animal ){
                     echo'

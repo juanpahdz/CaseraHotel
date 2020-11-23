@@ -28,10 +28,11 @@ class RegistroController extends BaseController
         );
         $AnimalModel = new ModelAnimal();   
         $data=array("animal"=>$send);
-        
+        $res="M.toast({html: 'Animal Registrado con Exito'})";
+
         try{
             $AnimalModel -> insert($send);
-            return redirect()->to(base_url('public/'));
+            return redirect()->to(base_url('public/'))->with('res',$res);
         }
         catch(\Exception $e){
             die($e_>getMessage());
@@ -58,10 +59,11 @@ class RegistroController extends BaseController
 
 
         $animalModel = new ModelAnimal();  
+        $res="M.toast({html: 'Animal Eliminado con Exito'})";
 
         try{
             $animalModel->where('id',$idEliminar)->delete();
-            return redirect()->to(base_url('public/listar'));
+            return redirect()->to(base_url('public/listar'))->with('res',$res);
         }
         catch(\Exception $e){
             die($e_>getMessage());
@@ -84,14 +86,17 @@ class RegistroController extends BaseController
             "comida" => $comida,
         );
 
+        $res="M.toast({html: 'Animal editado con Exito'})";
         print_r($send);
         $animalModel = new ModelAnimal();   
         try{
             $animalModel->update($id,$send);
-            return redirect()->to(base_url('public/listar'));
+            return redirect()->to(base_url('public/listar'))->with('res',$res);
         }
         catch(\Exception $e){
             die($e->getMessage());
+            $res="M.toast({html: 'Lo sentimos hubo un error. Estamos trabajando en ello'})";
+            return redirect()->to(base_url('public/listar'))->with('res',$res);
         }
 
     }

@@ -41,7 +41,7 @@
 </style>
 
 <body>
-<?php echo(isset($animal["id"]) ? "<script>M.toast({html: '".$animal["id"]." Registrado con Exito'})</script>": "");?>
+<script><?php echo(session('res'))?></script>
     <header>
         <nav class="teal lighten-2">
         <div class="container">
