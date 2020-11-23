@@ -43,6 +43,8 @@
 .row h3{
     margin:0
 }
+
+.card {height:550px;}
 </style>
 <main>
 <script><?php echo(session('res'))?></script>
